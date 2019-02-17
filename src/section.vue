@@ -3,9 +3,7 @@
         <!-- wwManager:start -->
         <wwSectionEditMenu v-bind:sectionCtrl="sectionCtrl"></wwSectionEditMenu>
         <!-- wwManager:end -->
-
         <wwObject class="background" v-bind:ww-object="section.data.background" ww-category="background"></wwObject>
-
         <div class="container section-padding">
             <div class="row">
                 <div class="title-container">
@@ -17,34 +15,30 @@
                     </div>
                 </div>
             </div>
-
             <div class="row padding0-20">
                 <div class="block" :class="{'left': !(index % 4)}" v-for="(block, index) in section.data.blocks" :key="block.uniqueId">
                     <div class="block-img-container">
                         <wwObject v-bind:ww-object="block.img"></wwObject>
                     </div>
-
                     <!-- wwManager:start -->
                     <div v-show="editMode" class="edit-button-top-left" @click="remove(section.data.blocks, { index })">
                         <i class="wwi wwi-delete" aria-hidden="true"></i>
                     </div>
                     <!-- wwManager:end -->
                 </div>
-
                 <!-- wwManager:start -->
                 <div v-show="editMode" class="block add-block-container" :class="{'left': !(section.data.blocks.length % 4)}">
                     <wwLayoutPlus @click="add(section.data.blocks, getNewBlock())"></wwLayoutPlus>
                 </div>
                 <!-- wwManager:end -->
             </div>
-
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "mosaique_A",
+    name: "__COMPONENT_NAME__",
     props: {
         sectionCtrl: Object
     },
@@ -192,7 +186,7 @@ export default {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
     .mosaique_A {
         .section-padding {
             padding: 75px 50px
